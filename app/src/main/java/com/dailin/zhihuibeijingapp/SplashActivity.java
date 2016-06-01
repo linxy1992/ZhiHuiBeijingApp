@@ -33,18 +33,18 @@ public class SplashActivity extends AppCompatActivity {
         //旋转动画
         RotateAnimation rotateAnimation = new RotateAnimation(0,360, Animation.RELATIVE_TO_SELF,
                 0.5f,Animation.RELATIVE_TO_SELF,0.5f);
-        rotateAnimation.setDuration(3000);//设置时间
+        rotateAnimation.setDuration(2000);//设置时间
         rotateAnimation.setFillAfter(true);//保持动画结束状态
 
         //缩放动画
         ScaleAnimation scaleAnimation = new ScaleAnimation(0,1,0,1,Animation.RELATIVE_TO_SELF,
                 0.5f,Animation.RELATIVE_TO_SELF,0.5f);
-        scaleAnimation.setDuration(3000);//设置时间
+        scaleAnimation.setDuration(2000);//设置时间
         scaleAnimation.setFillAfter(true);//保持结束状态
 
         //渐变动画
         AlphaAnimation alphaAnimation = new AlphaAnimation(0,1);
-        alphaAnimation.setDuration(5000);//设置时间
+        alphaAnimation.setDuration(3000);//设置时间
         alphaAnimation.setFillAfter(true);//保持结束状态
 
         //动画集合
@@ -69,7 +69,7 @@ public class SplashActivity extends AppCompatActivity {
                 Intent intent;
                 //第一次进入，跳转到新手引导
                 if(isFirstEnter){
-                    intent = new Intent(SplashActivity.this,GideActivity.class);
+                    intent = new Intent(SplashActivity.this,GuideActivity.class);
                 }else {//否则调到主页面
                     intent = new Intent(SplashActivity.this,MainActivity.class);
                 }
