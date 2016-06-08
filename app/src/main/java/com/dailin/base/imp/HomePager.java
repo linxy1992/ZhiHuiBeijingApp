@@ -2,6 +2,7 @@ package com.dailin.base.imp;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ public class HomePager extends BasePager {
 
     @Override
     public void initData() {
+        Log.d("td","----------------------------------HomePager");
         TextView textView = new TextView(mActivity);
         textView.setText("首页");
         textView.setTextSize(30);
