@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.dailin.utils.PreferenceUtils;
+
 import java.util.ArrayList;
 
 public class GuideActivity extends AppCompatActivity {
@@ -98,9 +100,14 @@ public class GuideActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //更新sp，已经不是第一次进入了
+                PreferenceUtils.setBoolean(GuideActivity.this,"is_First_Enter",false);
                 //调到主页面
                 Intent intent = new Intent(GuideActivity.this,MainActivity.class);
                 startActivity(intent);
+
+                //结束当前activity
+                finish();
             }
         });
 
@@ -129,7 +136,6 @@ public class GuideActivity extends AppCompatActivity {
             point.setLayoutParams(params);
             //给容器添加圆点
             ll_container.addView(point);
-
 
         }
 
