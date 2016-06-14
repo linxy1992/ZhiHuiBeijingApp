@@ -9,9 +9,7 @@ import android.widget.TextView;
 
 import com.dailin.base.BasePager;
 
-/**
- * Created by Administrator on 2016/6/8.
- */
+
 public class HomePager extends BasePager {
     public HomePager(Activity mActivity) {
         super(mActivity);
@@ -36,5 +34,10 @@ public class HomePager extends BasePager {
 
         //修改标题
         tvTitle.setText("首页");
+
+        //菜单按钮的显示
+        btnMenu.setVisibility(View.GONE);
     }
+
+
 }

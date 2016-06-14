@@ -36,5 +36,8 @@ public class GovAffairsPager extends BasePager {
 
         //修改标题
         tvTitle.setText("政务");
+
+        //菜单按钮的显示
+        btnMenu.setVisibility(View.VISIBLE);
     }
 }

@@ -1,5 +1,6 @@
 package com.dailin.zhihuibeijingapp;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.ll_main, new ContentFragment(), "main");
+        fragmentTransaction.replace(R.id.ll_main, new ContentFragment(), "MAIN");
         fragmentTransaction.replace(R.id.ll_leftMenu, new LeftMenuFragment(), "LEFT");
         fragmentTransaction.commit();
 
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 View mContent = mDrawerLayout.getChildAt(0);
                 View mMenu = drawerView;
                 float scale = 1 - slideOffset;
-                float rightScale = 0.8f + scale * 0.2f;
+                //float rightScale = 0.8f + scale * 0.2f;
 
                 if (drawerView.getTag().equals("LEFT")) {
                     float leftScale = 1 - 0.3f * scale;
@@ -49,15 +50,13 @@ public class MainActivity extends AppCompatActivity {
                     ViewHelper.setPivotX(mContent, 0);
                     ViewHelper.setPivotY(mContent, mContent.getMeasuredHeight() / 2);
                     mContent.invalidate();
-                    ViewHelper.setScaleX(mContent, rightScale);
-                    ViewHelper.setScaleY(mContent, rightScale);
+
                 } else {
                     ViewHelper.setTranslationX(mContent, -mMenu.getMeasuredWidth() * slideOffset);
                     ViewHelper.setPivotX(mContent, mContent.getMeasuredWidth());
                     ViewHelper.setPivotY(mContent, mContent.getMeasuredHeight() / 2);
                     mContent.invalidate();
-                    ViewHelper.setScaleX(mContent, rightScale);
-                    ViewHelper.setScaleY(mContent, rightScale);
+
                 }
             }
 
@@ -76,6 +75,21 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    //获取侧边栏对象
+    public LeftMenuFragment getLeftMenuFragment(){
+        FragmentManager fragmentManager = getFragmentManager();
+        //通过标记找到控件
+        LeftMenuFragment fragment = (LeftMenuFragment)fragmentManager.findFragmentByTag("LEFT");
+        return fragment;
+    }
+
+    //获取主页面对象
+    public ContentFragment getContentFragment(){
+        FragmentManager fragmentManager = getFragmentManager();
+        ContentFragment fragment = (ContentFragment) fragmentManager.findFragmentByTag("MAIN");
+        return fragment;
     }
 }
 

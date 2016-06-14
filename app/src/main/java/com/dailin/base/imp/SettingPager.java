@@ -33,9 +33,10 @@ public class SettingPager extends BasePager {
 
         //将控件添加到布局上
         flContent.addView(textView);
-
         //修改标题
         tvTitle.setText("设置");
-
+        //菜单按钮的显示
+        btnMenu.setVisibility(View.GONE);
+        
     }
 }

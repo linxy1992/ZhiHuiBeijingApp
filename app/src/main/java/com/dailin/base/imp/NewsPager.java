@@ -1,19 +1,14 @@
 package com.dailin.base.imp;
 
 import android.app.Activity;
-import android.graphics.Color;
-import android.text.TextUtils;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dailin.base.BaseMenuDetailPager;
 import com.dailin.base.BasePager;
-import com.dailin.base.imp.menu.InteractMenuDetailPager;
+import com.dailin.base.imp.menu.InterMenuDetailPager;
 import com.dailin.base.imp.menu.NewsMenuDetailPager;
-import com.dailin.base.imp.menu.PhotosMenuPager;
+import com.dailin.base.imp.menu.PhotoMenuPager;
 import com.dailin.base.imp.menu.TopicMenuDetailPager;
 import com.dailin.daomain.NewsMenu;
 import com.dailin.fragment.LeftMenuFragment;
@@ -74,8 +69,8 @@ public class NewsPager extends BasePager {
         mMenuDetailPagers = new ArrayList();
         mMenuDetailPagers.add(new NewsMenuDetailPager(mActivity));
         mMenuDetailPagers.add(new TopicMenuDetailPager(mActivity));
-        mMenuDetailPagers.add(new PhotosMenuPager(mActivity));
-        mMenuDetailPagers.add(new InteractMenuDetailPager(mActivity));
+        mMenuDetailPagers.add(new PhotoMenuPager(mActivity));
+        mMenuDetailPagers.add(new InterMenuDetailPager(mActivity));
         //显示新闻详情页
         setCurrentDetailPager(0);
     }
@@ -100,7 +95,7 @@ public class NewsPager extends BasePager {
         pager.initData();
         //获取详情页标题
         String mTitle = (String) leftMenuFragment.mNewsMenuData.get(position);
-        Log.d("biaoti", "+++++++++++++++++++++++++++ "+mTitle);
+        Log.d("biaoti", "+++++++++++++++++++++++++++ " + mTitle);
         //修改标题
         tvTitle.setText(mTitle);
     }

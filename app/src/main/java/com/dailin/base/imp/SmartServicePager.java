@@ -36,5 +36,8 @@ public class SmartServicePager extends BasePager {
 
         //修改标题
         tvTitle.setText("智慧服务");
+
+        //菜单按钮的显示
+        btnMenu.setVisibility(View.VISIBLE);
     }
 }
